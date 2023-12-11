@@ -1,0 +1,10 @@
+uuid: 112e0ab8-e482-4bc2-80c7-e18a7b26b460
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 7yrlW5z9zdg2eBucB2GPqXKSMQfH9lSRSO4DbWF7AFc
+id: footer
+label: 'Footer primary links'
+description: 'Footer primary links'
+locked: true
