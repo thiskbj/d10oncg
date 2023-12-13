@@ -23,7 +23,8 @@
         "drupal/paragraphs": "^1.16",
         "drupal/pathauto": "^1.12",
         "drupal/s3fs": "^3.4",
-        "drupal/uswds": "^3.0"
+        "drupal/uswds": "^3.0",
+        "drush/drush": "^12.4"
     },
     "conflict": {
         "drupal/drupal": "*"
