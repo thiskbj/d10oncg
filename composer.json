@@ -1,5 +1,5 @@
 {
-    "name": "18f/cf-ex-drupal10",
+    "name": "kgs/d10test",
     "description": "A sample Drupal 10 site readily deployable to cloud.gov",
     "type": "project",
     "license": "GPL-2.0-or-later",
@@ -15,41 +15,20 @@
         }
     ],
     "require": {
-        "composer/installers": "^2.2",
-        "cweagans/composer-patches": "^1.7",
-        "drupal/core": "^10.1",
+        "composer/installers": "^2.0",
         "drupal/core-composer-scaffold": "^10.1",
         "drupal/core-project-message": "^10.1",
         "drupal/core-recommended": "^10.1",
         "drupal/ctools": "^4.0",
-        "drupal/default_content": "^2.0@alpha",
-        "drupal/default_content_deploy": "^2.0",
-        "drupal/devel": "^5.1",
-        "drupal/diff": "^1.1",
-        "drupal/embed": "^1.7",
-        "drupal/entityqueue": "^1.7",
-        "drupal/features": "^3.14",
-        "drupal/feeds": "^3.0@beta",
-        "drupal/gutenberg": "^2.8",
-        "drupal/inline_entity_form": "^2.0@RC",
         "drupal/paragraphs": "^1.16",
         "drupal/pathauto": "^1.12",
-        "drupal/rules": "^3.0@alpha",
         "drupal/s3fs": "^3.4",
-        "drupal/scheduler": "^2.0",
-        "drupal/tfa": "^1.4",
-        "drupal/time_formatter": "^2.0",
-        "drupal/tour_ui": "^2.0",
-        "drupal/uswds": "^3.0",
-        "drupal/uswds_paragraphs": "^2.0@beta",
-        "drush/drush": "^12.4",
-        "symfony/filesystem": "^6.4",
-        "webflo/drupal-finder": "^1.2"
+        "drupal/uswds": "^3.0"
     },
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
@@ -57,8 +36,7 @@
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
             "phpstan/extension-installer": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "cweagans/composer-patches": true
+            "dealerdirect/phpcodesniffer-composer-installer": true
         },
         "sort-packages": true
     },
