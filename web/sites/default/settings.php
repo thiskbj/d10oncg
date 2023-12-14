@@ -761,6 +761,8 @@ $settings['file_scan_ignore_directories'] = [
   'bower_components',
 ];
 
+$settings['config_sync_directory'] = dirname(DRUPAL_ROOT) . '/web/config';
+
 // Pull in anything special for local developement
 if (file_exists(DRUPAL_ROOT . '/sites/settings.dev.php')) {
   include DRUPAL_ROOT . '/sites/settings.dev.php';

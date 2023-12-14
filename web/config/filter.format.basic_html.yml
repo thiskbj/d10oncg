@@ -1,4 +1,4 @@
-uuid: 2150dc1c-68ea-46fa-89f7-109e90261f86
+uuid: 2b6c4447-1e87-4107-b84c-c6d8ed6fcbd6
 langcode: en
 status: true
 dependencies:
@@ -36,6 +36,12 @@ filters:
     provider: filter
     status: true
     weight: 9
+    settings: {  }
+  filter_image_lazy_load:
+    id: filter_image_lazy_load
+    provider: filter
+    status: true
+    weight: 15
     settings: {  }
   editor_file_reference:
     id: editor_file_reference
