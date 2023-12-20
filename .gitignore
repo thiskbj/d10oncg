@@ -86,3 +86,6 @@ node_modules
 
 # Code coverage
 /.coverage
+
+# Old config
+/web/config.dist

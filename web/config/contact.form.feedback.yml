@@ -1,4 +1,4 @@
-uuid: 731eb486-31d3-461e-8732-51c2a47fda6a
+uuid: 51d14cc8-d192-4e0c-8a06-164e49675de1
 langcode: en
 status: true
 dependencies: {  }
@@ -7,7 +7,7 @@ _core:
 id: feedback
 label: 'Website feedback'
 recipients:
-  - admin@noaa.gov
+  - pacardullo@gmail.com
 reply: ''
 weight: 0
 message: 'Your message has been sent.'
