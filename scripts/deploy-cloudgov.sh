@@ -79,12 +79,14 @@ cf set-env web S3_BUCKET "$S3_BUCKET"
 cf set-env web S3_REGION "$S3_REGION"
 cf delete-service-key storage storagekey -f
 cf restart web
-
-# tell people where to go
-ROUTE=$(cf apps | grep web | awk '{print $6}')
-echo
-echo
-echo "  to log into the drupal site, you will want to go to https://${ROUTE}/user/login and get the username/password from the output of these commands:"
-echo "USERNAME:  cf e web | grep ROOT_USER_NAME | sed 's/.*: \"\(.*\)\".*/\1/'"
-echo "PASSWORD:  cf e web | grep ROOT_USER_PASS | sed 's/.*: \"\(.*\)\".*/\1/'"
-echo "  to get in.  Have fun!"
+#cf restage web
+# cf run-task web --command "./bootstrap.sh" --name "web-bootstrap" -k "2G" -m "256M"
+# 
+# # tell people where to go
+# ROUTE=$(cf apps | grep web | awk '{print $4}'|xargs)
+# echo
+# echo
+# echo "  to log into the drupal site, you will want to go to https://${ROUTE}/user/login and get the username/password from the output of these commands:"
+# echo "USERNAME:  cf e web | grep ROOT_USER_NAME | sed 's/.*: \"\(.*\)\".*/\1/'"
+# echo "PASSWORD:  cf e web | grep ROOT_USER_PASS | sed 's/.*: \"\(.*\)\".*/\1/'"
+# echo "  to get in.  Have fun!"

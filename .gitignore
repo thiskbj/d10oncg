@@ -90,3 +90,4 @@ node_modules
 # Old config
 /web/config.dist
 touchme.txt
+/scripts/post-deploy.sh

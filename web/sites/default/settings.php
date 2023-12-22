@@ -770,15 +770,7 @@ if (file_exists(DRUPAL_ROOT . '/sites/settings.dev.php')) {
 }
 
 // Override cloud.gov settings into Drupal
-// if ( !empty(getenv('VCAP_APPLICATION')) ) {
-//   include $app_root . '/' . $site_path . '/settings.cloudgov.php';
-// }
-
-// Handle cloud.gov and docker-compose file location differences
-if (file_exists($app_root . '/' . $site_path . '/settings.cf.php')) {
-  include $app_root . '/' . $site_path . '/settings.cf.php';
-}
-if (file_exists('./sites/default/settings.cf.php')) {
-  include './sites/default/settings.cf.php';
+if ( !empty(getenv('VCAP_APPLICATION')) ) {
+  include $app_root . '/' . $site_path . '/settings.cloudgov.php';
 }
 
