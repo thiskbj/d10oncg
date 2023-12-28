@@ -95,7 +95,7 @@ fi
 install_drupal() {
 	if [ "${verbose+isset}" ] && [ "${verbose}" -ge 1 ]
 	then
-		printf "\ninstall_drupal called on %s-%s\n" "${APP_ID}" "${CF_INSTANCE_INDEX:-''}"
+		printf "\ninstall_drupal called on %s\n" "${APP_ID}"
 	fi
 
 	ROOT_USER_NAME=$(echo "$SECRETS" | jq -r '.ROOT_USER_NAME')
@@ -116,72 +116,65 @@ install_drupal() {
     	--site-mail="pcardullo@koniag-gs.com" \
     	--locale="en" \
     	-y
-    
-	# Delete some data created in the "standard" install profile
-	# See https://www.drupal.org/project/drupal/issues/2583113
-	if [ "${verbose+isset}" ] && [ "${verbose}" -ge 1 ]
-	then
-		printf "\nCleaning up shortcuts, etc.\n"
-	fi
-	# drush entity:delete shortcut_set
- 	# drush config-delete -y field.field.node.article.body
-    
+        
 	# Set site uuid to match our config
 	if [ "${verbose+isset}" ] && [ "${verbose}" -ge 1 ]
 	then
 		printf "\nSet Site UUID\n"
 	fi
-	UUID=$(grep uuid "$APP_ROOT"/config/system.site.yml | cut -d' ' -f2)
+	UUID=$(grep uuid ../config/system.site.yml | cut -d' ' -f2)
 	drush config:set "system.site" uuid "$UUID" --yes
 	if [ "${verbose+isset}" ] && [ "${verbose}" -ge 1 ]
 	then
-		printf "\nSite UUID: %s\n" "${UUID}"
+		printf "\nSite UUID set to: %s\n" "${UUID}"
 	fi
 
 }
 
 
- # if [ "${CF_INSTANCE_INDEX:-''}" == "0" ] && [ "${APP_NAME}" == "web" ]; then
-# 
-# 	if [ "${verbose+isset}" ] && [ "${verbose}" -ge 1 ]
-# 	then
-# 		printf "\nRunning on Instance #%s\n" "${CF_INSTANCE_INDEX:-''}"
-# 	fi
+# Go into the Drupal web root directory
+cd "$DOC_ROOT"
 
-#   if [ "$APP_ID" = "docker" ] ; then
-# 	# make sure the database is created
-# 	echo "create database if not exists $DB_NAME;" | mysql --host="$DB_HOST" --port="$DB_PORT" --user="$DB_USER" --password="$DB_PW" || true
-#   fi
+# If there is no "config:import" command, Drupal needs to be installed
+drush list | grep "config:import" > /dev/null || install_drupal
 
-  # Go into the Drupal web root directory
-  cd "$DOC_ROOT"
+# Delete some data created in the "standard" install profile
+# See https://www.drupal.org/project/drupal/issues/2583113
+if [ "${verbose+isset}" ] && [ "${verbose}" -ge 1 ]
+then
+	printf "\nCleaning up shortcuts, etc.\n"
+fi
+# drush entity:delete shortcut_set
+drush entity:delete shortcut -y
+drush config-delete -y field.field.node.article.body
 
- # If there is no "config:import" command, Drupal needs to be installed
- drush list | grep "config:import" > /dev/null || install_drupal
- 
-  # Sync configs from code
-	if [ "${verbose+isset}" ] && [ "${verbose}" -ge 1 ]
-	then
-		printf "\nSync configs from code at %s\n" "$APP_ROOT/config"
-	fi
-	drush config:import --directory "$APP_ROOT/config"
+# Sync configs from code
+if [ "${verbose+isset}" ] && [ "${verbose}" -ge 1 ]
+then
+	printf "\nSync configs from code at %s\n" "../config"
+# 		echo "where am it"
+# 		pwd
+# 		printf "\nwhat is where\n"
+# 		ls -l ../config/system*
+fi
+drush config:import --source='../config' -y
 
-	# Secrets
-	if [ "${verbose+isset}" ] && [ "${verbose}" -ge 1 ]
-	then
-		printf "\nSetting email\n"
-	fi	
-	ADMIN_EMAIL=$(echo "$SECRETS" | jq -r '.ADMIN_EMAIL')
-	drush config-set "system.site" mail "$ADMIN_EMAIL" --yes
-	drush config-set "update.settings" notification.emails.0 "$ADMIN_EMAIL" --yes
-	if [ "${verbose+isset}" ] && [ "${verbose}" -ge 1 ]
-	then
-		printf "\nAdmin email: %s\n" "$ADMIN_EMAIL"
-	fi	
-	
+# Secrets
+if [ "${verbose+isset}" ] && [ "${verbose}" -ge 1 ]
+then
+	printf "\nSetting email\n"
+fi	
+ADMIN_EMAIL=$(echo "$SECRETS" | jq -r '.ADMIN_EMAIL')
+drush config-set "system.site" mail "$ADMIN_EMAIL" --yes
+drush config-set "update.settings" notification.emails.0 "$ADMIN_EMAIL" --yes
+if [ "${verbose+isset}" ] && [ "${verbose}" -ge 1 ]
+then
+	printf "\nAdmin email: %s\n" "$ADMIN_EMAIL"
+fi	
 
-	# Import initial content
-	##drush default-content-deploy:import --folder "$DOC_ROOT/sites/default/content" --yes
+
+# Import initial content
+##drush default-content-deploy:import --folder "$DOC_ROOT/sites/default/content" --yes
 
 # fi
 

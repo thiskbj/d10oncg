@@ -2,9 +2,9 @@ _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: en
 uuid: f047fa5b-89c8-4f6b-80de-7ea36c91cf55
-name: 'D10 on CG Test'
+name: 'D10 on CG Test - 003'
 mail: pcardullo@koniag-gs.com
-slogan: ''
+slogan: 'Read from Config'
 page:
   403: ''
   404: ''

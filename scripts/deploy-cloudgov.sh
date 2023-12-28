@@ -80,7 +80,8 @@ cf set-env web S3_REGION "$S3_REGION"
 cf delete-service-key storage storagekey -f
 cf restart web
 #cf restage web
-# cf run-task web --command "./bootstrap.sh" --name "web-bootstrap" -k "2G" -m "256M"
+cf run-task web --command "./bootstrap.sh -v 2" --name "web-bootstrap" -k "2G" -m "256M"
+cf logs web
 # 
 # # tell people where to go
 # ROUTE=$(cf apps | grep web | awk '{print $4}'|xargs)

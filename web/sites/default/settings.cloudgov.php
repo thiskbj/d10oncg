@@ -14,7 +14,8 @@ $settings['config_sync_directory'] = dirname(DRUPAL_ROOT) . '/config';
 // $applicaiton_fqdn_regex = "^.+\.(app\.cloud\.gov|weather\.gov)$";
 // $settings['trusted_host_patterns'][] = $applicaiton_fqdn_regex;
 
-$cf_application_data = json_decode(getenv('VCAP_APPLICATION') ?? '{}', TRUE);
+
+
 $cf_service_data = json_decode(getenv('VCAP_SERVICES') ?? '{}', TRUE);
 foreach ($cf_service_data as $service_list) {
   foreach ($service_list as $service) {
@@ -32,7 +33,7 @@ foreach ($cf_service_data as $service_list) {
       ];
     }
     elseif (stristr($service['name'], 'secrets')) {
-      $settings['hash_salt'] = hash('sha256', $service['credentials']['hash_salt']);
+      $settings['hash_salt'] = hash('sha256', $service['credentials']['HASH_SALT']);
     }
     elseif (stristr($service['name'], 'storage')) {
       $settings['s3fs.access_key'] = $service['credentials']['access_key_id'];
@@ -48,7 +49,7 @@ foreach ($cf_service_data as $service_list) {
       $config['s3fs.settings']['private_folder'] = 'private';
 
       $config['s3fs.settings']['use_cname'] = TRUE;
-      $config['s3fs.settings']['domain'] = $server_http_host . $s3_proxy_path_cms;
+      //$config['s3fs.settings']['domain'] = $server_http_host . $s3_proxy_path_cms;
       $config['s3fs.settings']['domain_root'] = 'public';
 
       $config['s3fs.settings']['use_customhost'] = TRUE;

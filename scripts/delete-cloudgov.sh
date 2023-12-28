@@ -4,11 +4,13 @@
 #
 
 # delete apps
-cf delete cronish
-cf delete web
+cf delete cronish -f
+cf delete web -f
 
 # delete services
-cf delete-service database
-cf delete-service secrets
-cf delete-service storage
+cf delete-service database -f
+cf delete-service secrets -f
+cf delete-service storage -f
 
+echo "Manually delete routes"
+cf routes
