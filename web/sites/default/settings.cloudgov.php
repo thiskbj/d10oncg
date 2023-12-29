@@ -14,8 +14,6 @@ $settings['config_sync_directory'] = dirname(DRUPAL_ROOT) . '/config';
 // $applicaiton_fqdn_regex = "^.+\.(app\.cloud\.gov|weather\.gov)$";
 // $settings['trusted_host_patterns'][] = $applicaiton_fqdn_regex;
 
-
-
 $cf_service_data = json_decode(getenv('VCAP_SERVICES') ?? '{}', TRUE);
 foreach ($cf_service_data as $service_list) {
   foreach ($service_list as $service) {
@@ -36,10 +34,15 @@ foreach ($cf_service_data as $service_list) {
       $settings['hash_salt'] = hash('sha256', $service['credentials']['HASH_SALT']);
     }
     elseif (stristr($service['name'], 'storage')) {
+     $config['system.site']['slogan'] = 'Loaded from settings.cloudgov.php storage service section';
       $settings['s3fs.access_key'] = $service['credentials']['access_key_id'];
       $settings['s3fs.secret_key'] = $service['credentials']['secret_access_key'];
+      $settings['s3fs.bucket'] = $service['credentials']['bucket'];
+      $settings['s3fs.region'] = $service['credentials']['region'];
       $config['s3fs.settings']['bucket'] = $service['credentials']['bucket'];
       $config['s3fs.settings']['region'] = $service['credentials']['region'];
+      $config['s3fs.settings']['access_key'] = $service['credentials']['access_key_id'];
+      $config['s3fs.settings']['secret_key'] = $service['credentials']['secret_access_key'];
 
       $config['s3fs.settings']['disable_cert_verify'] = FALSE;
 
@@ -66,3 +69,4 @@ foreach ($cf_service_data as $service_list) {
     }
   }
 }
+     $config['system.site']['slogan'] = 'Loaded from settings.cloudgov.php general';

@@ -116,6 +116,13 @@ install_drupal() {
     	--site-mail="pcardullo@koniag-gs.com" \
     	--locale="en" \
     	-y
+    	
+ 	if [ "${verbose+isset}" ] && [ "${verbose}" -ge 1 ]
+	then
+		printf "\nImporting previous database\n"
+	fi
+	drush sql-drop -y
+   	drush sql-cli < $(drush dd)/../db/dbtestdump.001.sql
         
 	# Set site uuid to match our config
 	if [ "${verbose+isset}" ] && [ "${verbose}" -ge 1 ]
@@ -145,8 +152,9 @@ then
 	printf "\nCleaning up shortcuts, etc.\n"
 fi
 # drush entity:delete shortcut_set
-drush entity:delete shortcut -y
-drush config-delete -y field.field.node.article.body
+drush entity:delete shortcut -y || echo "Error deleting shortcut entity"
+drush entity:delete shortcut_set -y || echo "Error deleting shortcut_set entity"
+drush config-delete -y field.field.node.article.body || echo "Error deleting field.field.node.article.body"
 
 # Sync configs from code
 if [ "${verbose+isset}" ] && [ "${verbose}" -ge 1 ]

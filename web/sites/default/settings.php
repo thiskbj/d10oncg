@@ -763,6 +763,8 @@ $settings['file_scan_ignore_directories'] = [
 
 #$settings['config_sync_directory'] = dirname(DRUPAL_ROOT) . '/web/config';
 $settings['config_sync_directory'] = dirname(DRUPAL_ROOT) . '/config';
+//$config['system.site']['slogan'] = 'Loaded from settings.cloudgov.php general';
+
 
 // Pull in anything special for local developement
 if (file_exists(DRUPAL_ROOT . '/sites/settings.dev.php')) {

@@ -62,6 +62,7 @@
 # Ignore Logs and databases
 *.log
 *.sql
+!db/*.sql
 
 # Ignore OS generated files
 .DS_Store*
