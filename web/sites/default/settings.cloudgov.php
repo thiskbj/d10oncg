@@ -34,39 +34,31 @@ foreach ($cf_service_data as $service_list) {
       $settings['hash_salt'] = hash('sha256', $service['credentials']['HASH_SALT']);
     }
     elseif (stristr($service['name'], 'storage')) {
-     $config['system.site']['slogan'] = 'Loaded from settings.cloudgov.php storage service section';
-      $settings['s3fs.access_key'] = $service['credentials']['access_key_id'];
-      $settings['s3fs.secret_key'] = $service['credentials']['secret_access_key'];
-      $settings['s3fs.bucket'] = $service['credentials']['bucket'];
-      $settings['s3fs.region'] = $service['credentials']['region'];
+      //$config['s3fs.settings']['region'] = $service['credentials']['region'];
+      //$settings['s3fs.bucket'] = $service['credentials']['bucket'];
+      //$settings['s3fs.region'] = $service['credentials']['region'];
+//       $config['s3fs.settings']['region'] = 'us-gov-west-1';
+//       $settings['s3fs.cssjs_host'] = '';
+//       $settings['s3fs.disable_cert_verify'] = FALSE;
+//       $settings['s3fs.domain_root'] = 'public';
+//       $settings['s3fs.domain'] = $server_http_host . $s3_proxy_path_cms;
+//       $settings['s3fs.hostname'] = $service['credentials']['fips_endpoint'];
+//       $settings['s3fs.private_folder'] = 'private';
+//       $settings['s3fs.public_folder'] = 'public';
+//       $settings['s3fs.root_folder'] = 'cms';
+//       $settings['s3fs.upload_as_private'] = FALSE;
+//       $settings['s3fs.use_cname'] = TRUE;
+//       $settings['s3fs.use_cssjs_host'] = FALSE;
+//       $settings['s3fs.use_customhost'] = FALSE;
+//       $settings['s3fs.use_https'] = TRUE;
+//       $settings['s3fs.use-path-style-endpoint'] = FALSE;
       $config['s3fs.settings']['bucket'] = $service['credentials']['bucket'];
       $config['s3fs.settings']['region'] = $service['credentials']['region'];
-      $config['s3fs.settings']['access_key'] = $service['credentials']['access_key_id'];
-      $config['s3fs.settings']['secret_key'] = $service['credentials']['secret_access_key'];
-
-      $config['s3fs.settings']['disable_cert_verify'] = FALSE;
-
-      $config['s3fs.settings']['root_folder'] = 'cms';
-
-      $config['s3fs.settings']['public_folder'] = 'public';
-      $config['s3fs.settings']['private_folder'] = 'private';
-
-      $config['s3fs.settings']['use_cname'] = TRUE;
-      //$config['s3fs.settings']['domain'] = $server_http_host . $s3_proxy_path_cms;
-      $config['s3fs.settings']['domain_root'] = 'public';
-
-      $config['s3fs.settings']['use_customhost'] = TRUE;
-      $config['s3fs.settings']['hostname'] = $service['credentials']['fips_endpoint'];
-      $config['s3fs.settings']['use-path-style-endpoint'] = FALSE;
-
-      $config['s3fs.settings']['use_cssjs_host'] = FALSE;
-      $config['s3fs.settings']['cssjs_host'] = '';
-
-      $config['s3fs.settings']['use_https'] = TRUE;
-      $settings['s3fs.upload_as_private'] = FALSE;
-      $settings['s3fs.use_s3_for_public'] = TRUE;
+      $settings['s3fs.access_key'] = $service['credentials']['access_key_id'];
+      $settings['s3fs.secret_key'] = $service['credentials']['secret_access_key'];
       $settings['s3fs.use_s3_for_private'] = TRUE;
+      $settings['s3fs.use_s3_for_public'] = TRUE;
     }
   }
 }
-     $config['system.site']['slogan'] = 'Loaded from settings.cloudgov.php general';
+//     $config['system.site']['slogan'] = 'Loaded from settings.cloudgov.php general';

@@ -180,6 +180,9 @@ then
 	printf "\nAdmin email: %s\n" "$ADMIN_EMAIL"
 fi	
 
+# Import menu items, taxonomy items, custom blocks
+drush import-all --choice=safe
+
 
 # Import initial content
 ##drush default-content-deploy:import --folder "$DOC_ROOT/sites/default/content" --yes

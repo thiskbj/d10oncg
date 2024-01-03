@@ -1,0 +1,90 @@
+blocks:
+  -
+    info: 'Demo Sidebar'
+    langcode: en
+    uuid: c5bcf808-92cc-4717-a998-96564c7c5615
+    bundle: basic
+    revision_id: null
+    rev_id_current: null
+    fields:
+      body:
+        -
+          value: '<p>This is a demo sidebar block. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor. Cras varius. Praesent blandit laoreet nibh. Praesent blandit laoreet nibh. Nunc nonummy metus.</p>'
+          summary: ''
+          format: basic_html
+menus:
+  -
+    menu_name: main
+    title: OMH
+    parent: null
+    uri: 'https://minorityhealth.hhs.gov/'
+    link_title: ''
+    description: null
+    enabled: true
+    expanded: false
+    weight: 0
+    langcode: en
+    uuid: 22381099-5573-44eb-88fb-7451f56bff81
+taxonomies:
+  new_voc:
+    -
+      vid: new_voc
+      tid: '4'
+      langcode: en
+      name: 'For new vocab 01'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 0a8f3c90-80ea-4631-bdad-9981b85d4edb
+    -
+      vid: new_voc
+      tid: '5'
+      langcode: en
+      name: 'For new vocab 02'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 02b2d277-90ed-408e-aa09-5d116357b4aa
+    -
+      vid: new_voc
+      tid: '6'
+      langcode: en
+      name: 'For new vocab 03'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: beaa6c69-a562-485c-83a9-07d37583f18e
+  tags:
+    -
+      vid: tags
+      tid: '1'
+      langcode: en
+      name: 'Test Term 01'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 08d262f3-244a-4cce-bb3d-5db17f2cea6f
+    -
+      vid: tags
+      tid: '2'
+      langcode: en
+      name: 'Test Term 02'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: e16e906e-471a-4496-b32a-9020937efc88
+    -
+      vid: tags
+      tid: '3'
+      langcode: en
+      name: 'Test Term 03'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: a138c857-bb60-4c98-8e2b-09683eb12526

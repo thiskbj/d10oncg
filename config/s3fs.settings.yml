@@ -2,7 +2,7 @@ _core:
   default_config_hash: VV0HFGFvi0Pou7lakptNvL-oNLy6iIUp5m6b6gf4xos
 credentials_file: ''
 bucket: ''
-region: us-east-1
+region: us-gov-west-1
 use_cname: false
 domain_root: public
 use_customhost: false
@@ -18,8 +18,8 @@ read_only: false
 disable_cert_verify: false
 redirect_styles_ttl: 0
 root_folder: ''
-public_folder: public
-private_folder: private
+public_folder: ''
+private_folder: ''
 presigned_urls: ''
 saveas: ''
 torrents: ''

@@ -26,6 +26,7 @@
         "drupal/paragraphs": "^1.16",
         "drupal/pathauto": "^1.12",
         "drupal/s3fs": "^3.4",
+        "drupal/structure_sync": "^2.0",
         "drupal/uswds": "^3.0",
         "drush/drush": "^12.4"
     },
