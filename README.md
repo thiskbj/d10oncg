@@ -24,16 +24,8 @@ Enable php extensions for php buildpack
 php memory limit configuration
   - **options.json**
 buildpack options, including installing the latest version of php 8.2
-- **.cfignore**
-Composer ignore file
-- **.csslintrc**
-CSS Lint config
 - . **editorconfig**
 Drupal editor config normalization
-- **.eslintignore**
-ESLint (Javascript linter) ignore file
-- **.eslintrc.json**
-ESLint (Javascript linter) config
 - **.git**
 - **.gitattributes**
 - **.gitignore**
@@ -43,9 +35,6 @@ Run during CF/Cloud.gov app initialization – creates/modifies .htaccess file
 - **README.md**
 - **apt.yml**
 apt packages to add – adds mariadb/mysql client
-- **bin**
-Assorted bash scripts
- Possibly obsolete - TEST to see if these can be deleted
 - **bootstrap.sh**
 Bootstrap.sh script – run via the ./scripts/deploy-cloudgov.sh
  Should only be run on initial deployment – otherwise it will replace the database
@@ -64,8 +53,6 @@ Location of seed database. If you want to import database from an existing site,
 For use with/by the drush utility for Drupal
 - **manifest.yml**
 Configures the CF/Cloud.gov app(s), services, etc
-- **phpunit.xml.dist**
-Default config for PHPUnit php test framework
 - **private**
 Placeholder directory for Drupal private directory
 - **Scripts**
