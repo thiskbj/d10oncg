@@ -1,9 +1,0 @@
-#!/bin/bash
-set -e
-
-docker-compose run \
-  --rm \
-  --no-deps \
-  --workdir /var/www \
-  web \
-  composer "$@"

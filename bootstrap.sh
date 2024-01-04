@@ -113,7 +113,7 @@ install_drupal() {
     	--account-name="$ROOT_USER_NAME" \
     	--account-pass="$ROOT_USER_PASS" \
     	--site-name="Drupal Test on Cloud.gov" \
-    	--site-mail="pcardullo@koniag-gs.com" \
+    	--site-mail="katherine.jones@koniag-gs.com" \
     	--locale="en" \
     	-y
     	
