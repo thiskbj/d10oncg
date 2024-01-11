@@ -771,6 +771,9 @@ if (file_exists(DRUPAL_ROOT . '/sites/settings.dev.php')) {
   include DRUPAL_ROOT . '/sites/settings.dev.php';
 }
 
+// Test config
+$settings['s3fs.upload_as_private'] = TRUE;
+
 // Override cloud.gov settings into Drupal
 if ( !empty(getenv('VCAP_APPLICATION')) ) {
   include $app_root . '/' . $site_path . '/settings.cloudgov.php';
