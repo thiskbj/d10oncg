@@ -1,0 +1,8 @@
+uuid: 54de3dc3-f95e-41fc-9192-cec31e15df8a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Test Vocabulary'
+vid: new_voc
+description: 'This is a test vocabulary'
+weight: 0

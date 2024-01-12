@@ -1,0 +1,30 @@
+uuid: fd4a4548-49ab-4c1e-b3d1-046836de3f1e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c5bcf808-92cc-4717-a998-96564c7c5615'
+  module:
+    - block_content
+    - system
+  theme:
+    - olivero
+id: olivero_demosidebar
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: 'block_content:c5bcf808-92cc-4717-a998-96564c7c5615'
+settings:
+  id: 'block_content:c5bcf808-92cc-4717-a998-96564c7c5615'
+  label: 'Demo Sidebar'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

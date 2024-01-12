@@ -1,0 +1,15 @@
+uuid: 1c0f2aa5-ca87-4db5-a5f7-11106492db5b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: B6mQr6j7ZcqZB14S8ytJEXCYzOQ1mcOW9-oWYbtkbJc
+id: daily_schedule
+label: 'Daily Schedule'
+enabled: false
+keep: 10
+period: 86400
+cron: null
+source_id: default_db
+destination_id: private_files
+settings_profile_id: test_site_backup_defaults
