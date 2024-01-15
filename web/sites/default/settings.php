@@ -297,7 +297,7 @@ $config_directories = array();
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'tKLvNarwOapvB04acvdFXN3FBQZoowSb8_6UEDNepGJ7BHEZOd60aIGGkvY_ULDIij6cygt_0w';
+$settings['hash_salt'] = 'sA51ewzJYcoqJ2YPKNHVvjD43fCZAgJfcEuilLEBpfHKHgy2ZACgSfccbW_cRgH9orAVtjioZg';
 
 /**
  * Deployment identifier.
@@ -778,16 +778,3 @@ $settings['s3fs.upload_as_private'] = TRUE;
 if ( !empty(getenv('VCAP_APPLICATION')) ) {
   include $app_root . '/' . $site_path . '/settings.cloudgov.php';
 }
-
-$databases['default']['default'] = array (
-  'database' => 'omh',
-  'username' => 'omh',
-  'password' => 'cO_y1rKyfFH54D23',
-  'prefix' => '',
-  'host' => '127.0.0.1',
-  'port' => '3306',
-  'isolation_level' => 'READ COMMITTED',
-  'driver' => 'mysql',
-  'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
-  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
-);
