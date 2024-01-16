@@ -67,5 +67,9 @@ Deletes entire app (aside from routes)!
 Initializes/launches app
  Only used for initialization of app
  Run from app root directory
+  - **localdev-setup.sh**
+Finishes initializing site for local development
+ Only used for initialization of app
+ Run from app root directory
 - **web**
 placeholder directory/subdirectories for Drupal
