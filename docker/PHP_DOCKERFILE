@@ -1,0 +1,15 @@
+FROM wodby/drupal-php:8.1-dev-4.55.0
+
+USER root
+RUN apk add --update libuser=0.63-r1 zsh=5.8.1-r4 \
+    # create necessary files to change the default shell
+    && touch /etc/login.defs \
+    && mkdir /etc/default \
+    && touch /etc/default/useradd \
+    # change the password of teh current user to ''
+    && passwd `whoami` -d \
+    # change the default shell to zsh for the current user
+    && echo '/bin/zsh' | lchsh `whoami` \
+RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
+  -p git
+RUN touch ~/.adam_was_here
