@@ -1,0 +1,23 @@
+<?php
+
+use Drupal\content_moderation\ContentModerationState;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityPublishedInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\workflows\WorkflowInterface;
+
+function cmsp_entity_access(EntityInterface $entity, $operation, AccountInterface $account) {
+  $access_result = NULL;
+  /** @var \Drupal\content_moderation\ModerationInformationInterface $moderation_info */
+  $moderation_info = Drupal::service('content_moderation.moderation_information');
+  if ($operation === 'view') {
+    if (($entity instanceof EntityPublishedInterface) && !$entity->isPublished() && $moderation_info->isModeratedEntity($entity) && $entity->moderation_state) {
+      $workflow = $moderation_info->getWorkflowForEntity($entity);
+      /** @var ContentModerationState $state */
+      $state = $entity->get('moderation_state')->value;
+      $access_result = AccessResult::allowedIfHasPermission($account, 'View revisions in ' . $workflow->id() . ' state ' . $state);
+    }
+  }
+  return $access_result;
+}

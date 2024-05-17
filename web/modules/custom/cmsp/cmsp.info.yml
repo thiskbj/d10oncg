@@ -1,0 +1,5 @@
+name: Content Moderation State Permissions
+type: module
+description: 'Provides granular permissions for viewing revisions based on their Content Moderation State.'
+package: Content Moderation
+core_version_requirement: ^10
